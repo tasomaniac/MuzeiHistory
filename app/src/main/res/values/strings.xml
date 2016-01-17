@@ -1,0 +1,20 @@
+<resources>
+  <string name="app_name">Muzei History</string>
+
+  <string name="settings_label">Settings</string>
+
+  <string name="pref_key_category_general">pref_category_general</string>
+  <string name="pref_title_general">General</string>
+
+  <string name="done">Done</string>
+
+  <string name="pref_key_category_integrations">pref_category_integrations</string>
+  <string name="pref_title_integrations">Integrations</string>
+
+  <string name="pref_key_muzei_integration">pref_muzei_integration</string>
+  <string name="pref_title_muzei_integration">Muzei App Integration</string>
+  <string name="pref_summary_muzei_installed">Use Muzei and your wallpapers will be kept.</string>
+  <string name="pref_summary_muzei_not_installed">Click here to install Muzei Wallpaper for this app to work.</string>
+
+  <string name="error_install_muzei">Please install Muzei App first!</string>
+</resources>
