@@ -1,6 +1,8 @@
 package com.tasomaniac.muzei.history;
 
 
+import com.tasomaniac.muzei.history.artwork.ArtworkProvider;
+import com.tasomaniac.muzei.history.artwork.ArtworkService;
 import com.tasomaniac.muzei.history.ui.SettingsFragment;
 
 import javax.inject.Singleton;
@@ -14,6 +16,10 @@ public interface AppComponent {
     void inject(App app);
 
     void inject(SettingsFragment fragment);
+
+    void inject(ArtworkService service);
+
+    void inject(ArtworkProvider provider);
 
     /**
      * An initializer that creates the graph from an application.

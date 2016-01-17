@@ -13,24 +13,40 @@
     android:name="com.tasomaniac.muzei.history.App"
     android:allowBackup="true"
     android:fullBackupContent="true"
-    android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
     android:theme="@style/Theme.MuzeiHistory">
 
     <activity
-        android:name="com.tasomaniac.muzei.history.ui.SettingsActivity"
-        android:exported="true"
-        android:launchMode="singleTask"/>
+      android:name="com.tasomaniac.muzei.history.ui.SettingsActivity"
+      android:exported="true"
+      android:launchMode="singleTask"/>
 
     <activity-alias
-        android:name=".ui.MainActivity"
-        android:enabled="true"
-        android:targetActivity="com.tasomaniac.muzei.history.ui.SettingsActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
+      android:name=".ui.MainActivity"
+      android:enabled="true"
+      android:targetActivity="com.tasomaniac.muzei.history.ui.SettingsActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
     </activity-alias>
+
+    <provider
+      android:name=".artwork.ArtworkProvider"
+      android:authorities="${applicationId}.provider"
+      android:exported="true"
+      tools:ignore="ExportedContentProvider"/>
+
+    <receiver
+      android:name=".artwork.ArtworkReceiver"
+      tools:ignore="ExportedReceiver">
+
+      <intent-filter>
+        <action android:name="com.google.android.apps.muzei.ACTION_ARTWORK_CHANGED"/>
+      </intent-filter>
+    </receiver>
+
+    <service android:name=".artwork.ArtworkService"/>
 
     <meta-data
       android:name="io.fabric.ApiKey"
