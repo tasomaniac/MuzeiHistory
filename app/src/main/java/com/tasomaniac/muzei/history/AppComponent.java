@@ -3,7 +3,7 @@ package com.tasomaniac.muzei.history;
 
 import com.tasomaniac.muzei.history.artwork.ArtworkProvider;
 import com.tasomaniac.muzei.history.artwork.ArtworkService;
-import com.tasomaniac.muzei.history.ui.SettingsFragment;
+import com.tasomaniac.muzei.history.settings.SettingsFragment;
 
 import javax.inject.Singleton;
 

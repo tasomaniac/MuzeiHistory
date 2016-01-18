@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tasomaniac.muzei.history.ui;
+package com.tasomaniac.muzei.history.settings;
 
 import android.app.backup.BackupManager;
 import android.content.SharedPreferences;
