@@ -1,22 +1,21 @@
 package com.tasomaniac.muzei.history;
 
 import android.app.Application;
-import android.content.Intent;
 import android.net.Uri;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.tasomaniac.muzei.history.artwork.Artwork;
-import com.tasomaniac.muzei.history.artwork.IntentFieldConverter;
-import com.tasomaniac.muzei.history.artwork.UriFieldConverter;
+import com.tasomaniac.muzei.history.artwork.ArtworkProvider;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import nl.littlerobots.cupboard.tools.provider.UriHelper;
 import nl.qbusict.cupboard.Cupboard;
-import nl.qbusict.cupboard.CupboardBuilder;
-import nl.qbusict.cupboard.CupboardFactory;
+
+import static com.tasomaniac.muzei.history.cupboard.CupboardFactory.cupboard;
 
 /**
  * A module for Android-specific dependencies which require a Context to create.
@@ -48,12 +47,14 @@ final class AppModule {
     }
 
     @Provides @Singleton Cupboard provideCupboard() {
-        Cupboard cupboard = new CupboardBuilder()
-                .registerFieldConverter(Intent.class, new IntentFieldConverter())
-                .registerFieldConverter(Uri.class, new UriFieldConverter())
-                .build();
-        CupboardFactory.setCupboard(cupboard);
-        cupboard.register(Artwork.class);
-        return cupboard;
+        return cupboard();
+    }
+
+    @Provides @Singleton UriHelper provideUriHelper(Cupboard cupboard) {
+        return UriHelper.with(cupboard).forAuthority(ArtworkProvider.AUTHORITY);
+    }
+
+    @Provides @Singleton Uri provideArtworkUri(UriHelper uriHelper) {
+        return uriHelper.getUri(Artwork.class);
     }
 }

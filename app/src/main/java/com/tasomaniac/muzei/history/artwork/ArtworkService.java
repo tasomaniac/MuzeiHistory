@@ -12,7 +12,10 @@ import nl.qbusict.cupboard.Cupboard;
 
 public class ArtworkService extends IntentService {
 
+    public static final Uri MUZEI_URI = Uri.parse("content://com.google.android.apps.muzei/artwork");
+
     @Inject Cupboard cupboard;
+    @Inject Uri artworkUri;
 
     public ArtworkService() {
         super("ArtworkService");
@@ -26,8 +29,9 @@ public class ArtworkService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Uri muzeiUri = Uri.parse("content://com.google.android.apps.muzei/artwork");
-        Artwork artwork = cupboard.withContext(this).get(muzeiUri, Artwork.class);
+        Artwork artwork = cupboard.withContext(this).get(MUZEI_URI, Artwork.class);
+
+        cupboard.withContext(this).put(artworkUri, artwork);
 
         ArtworkReceiver.completeWakefulIntent(intent);
     }
