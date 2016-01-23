@@ -61,7 +61,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
-        Injector.obtain(getActivity().getApplicationContext()).inject(this);
+        Injector.obtain(getActivity()).inject(this);
         addPreferencesFromResource(R.xml.pref_general);
 
         muzeiPref = (IntegrationPreference) findPreference(R.string.pref_key_muzei_integration);

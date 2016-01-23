@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.tasomaniac.muzei.history.BaseActivity;
 import com.tasomaniac.muzei.history.R;
 
-public class SettingsActivity extends AppCompatActivity
+public class SettingsActivity extends BaseActivity
         implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     public void onCreate(Bundle savedInstanceState) {
