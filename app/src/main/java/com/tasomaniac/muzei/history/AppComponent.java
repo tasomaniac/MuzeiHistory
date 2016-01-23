@@ -1,8 +1,8 @@
 package com.tasomaniac.muzei.history;
 
 
-import com.tasomaniac.muzei.history.artwork.ArtworkProvider;
 import com.tasomaniac.muzei.history.artwork.ArtworkService;
+import com.tasomaniac.muzei.history.data.DataModule;
 import com.tasomaniac.muzei.history.settings.SettingsFragment;
 
 import javax.inject.Singleton;
@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {AppModule.class})
+@Component(modules = {AppModule.class, DataModule.class})
 public interface AppComponent {
 
     void inject(App app);
@@ -19,7 +19,6 @@ public interface AppComponent {
 
     void inject(ArtworkService service);
 
-    void inject(ArtworkProvider provider);
 
     /**
      * An initializer that creates the graph from an application.
