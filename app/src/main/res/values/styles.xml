@@ -8,5 +8,9 @@
     <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
   </style>
 
-  <style name="Theme.MuzeiHistory" parent="Base.Theme.MuzeiHistory" />
+  <style name="Theme.MuzeiHistory" parent="Base.Theme.MuzeiHistory"/>
+
+  <style name="Theme.MuzeiHistory.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+  <style name="Theme.MuzeiHistory.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>

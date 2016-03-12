@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.tasomaniac.muzei.history"
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
@@ -21,18 +22,17 @@
       android:exported="true"
       android:launchMode="singleTask"/>
 
-    <activity-alias
-      android:name=".ui.MainActivity"
-      android:enabled="true"
-      android:targetActivity="com.tasomaniac.muzei.history.settings.SettingsActivity">
+    <activity
+      android:name=".main.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
+
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
-    </activity-alias>
+    </activity>
 
     <provider
-      android:name=".artwork.ArtworkProvider"
+      android:name=".artwork.generated.ArtworkProvider"
       android:authorities="${applicationId}.provider"
       android:exported="true"
       tools:ignore="ExportedContentProvider"/>
@@ -40,7 +40,6 @@
     <receiver
       android:name=".artwork.ArtworkReceiver"
       tools:ignore="ExportedReceiver">
-
       <intent-filter>
         <action android:name="com.google.android.apps.muzei.ACTION_ARTWORK_CHANGED"/>
       </intent-filter>

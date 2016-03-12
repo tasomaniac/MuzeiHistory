@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <dimen name="spacing_nano">2dp</dimen>
+  <dimen name="spacing_normal">8dp</dimen>
+  <dimen name="spacing_double">16dp</dimen>
 
   <dimen name="keyline_1">16dp</dimen>
   <dimen name="appbar_height">196dp</dimen>
+  <dimen name="app_bar_height">180dp</dimen>
+  <dimen name="fab_margin">16dp</dimen>
 </resources>

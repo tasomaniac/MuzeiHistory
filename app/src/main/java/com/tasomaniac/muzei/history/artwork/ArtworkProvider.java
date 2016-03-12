@@ -1,25 +1,39 @@
 package com.tasomaniac.muzei.history.artwork;
 
+import android.net.Uri;
+
 import com.tasomaniac.muzei.history.BuildConfig;
 
-import nl.littlerobots.cupboard.tools.provider.CupboardContentProvider;
-import nl.qbusict.cupboard.Cupboard;
+import net.simonvt.schematic.annotation.ContentProvider;
+import net.simonvt.schematic.annotation.ContentUri;
+import net.simonvt.schematic.annotation.InexactContentUri;
+import net.simonvt.schematic.annotation.TableEndpoint;
 
-import static com.tasomaniac.muzei.history.cupboard.CupboardFactory.cupboard;
+@ContentProvider(authority = ArtworkProvider.AUTHORITY, database = ArtworkDatabase.class)
+public class ArtworkProvider {
 
-
-public class ArtworkProvider extends CupboardContentProvider {
-
-    // The content provider authority is used for building Uri's for the provider
-    public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider";
-    public static final String DATABASE_NAME = "history.db";
-
-    public ArtworkProvider() {
-        super(AUTHORITY, DATABASE_NAME, 1);
+    private ArtworkProvider() {
     }
 
-    @Override
-    protected Cupboard createCupboard() {
-        return cupboard();
+    public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider";
+
+    @TableEndpoint(table = ArtworkDatabase.ARTWORKS)
+    public static class Artworks {
+
+        @ContentUri(
+                path = "artworks",
+                type = "vnd.android.cursor.dir/artwork"
+        )
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/artworks");
+
+        @InexactContentUri(
+                name = "ARTWORK_ID",
+                path = "artworks/#",
+                type = "vnd.android.cursor.item/artwork",
+                whereColumn = ArtworkDatabase.ArtworkColumns.ID,
+                pathSegment = 1)
+        public static Uri withId(long id) {
+            return Uri.parse("content://" + AUTHORITY + "/artworks/" + id);
+        }
     }
 }

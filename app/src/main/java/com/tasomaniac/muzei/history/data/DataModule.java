@@ -5,7 +5,6 @@ import android.net.Uri;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
-import com.tasomaniac.muzei.history.artwork.Artwork;
 import com.tasomaniac.muzei.history.artwork.ArtworkProvider;
 
 import java.io.File;
@@ -14,7 +13,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import nl.littlerobots.cupboard.tools.provider.UriHelper;
 import nl.qbusict.cupboard.Cupboard;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -32,15 +30,9 @@ public class DataModule {
         return cupboard();
     }
 
-    @Provides @Singleton
-    UriHelper provideUriHelper(Cupboard cupboard) {
-        return UriHelper.with(cupboard).forAuthority(ArtworkProvider.AUTHORITY);
+    @Provides @Singleton Uri provideArtworkUri() {
+        return ArtworkProvider.Artworks.CONTENT_URI;
     }
-
-    @Provides @Singleton Uri provideArtworkUri(UriHelper uriHelper) {
-        return uriHelper.getUri(Artwork.class);
-    }
-
 
     @Provides @Singleton OkHttpClient provideOkHttpClient(Application app) {
         return createOkHttpClient(app).build();

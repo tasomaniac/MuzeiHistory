@@ -1,0 +1,42 @@
+<android.support.percent.PercentRelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/category_item"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:foreground="?attr/selectableItemBackground"
+  tools:ignore="UseCompoundDrawables">
+
+  <!--suppress AndroidDomInspection -->
+  <ImageView
+    android:id="@+id/artwork"
+    app:layout_widthPercent="100%"
+    app:layout_aspectRatio="178%"
+    tools:src="@drawable/ic_error"
+    android:scaleType="centerCrop"
+    android:contentDescription="@null"/>
+
+  <TextView
+    android:id="@+id/artwork_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/artwork_byline"
+    android:paddingBottom="@dimen/spacing_normal"
+    android:paddingLeft="@dimen/keyline_1"
+    android:paddingRight="@dimen/keyline_1"
+    android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+    tools:text="Golog, Chine - Earth View from Google"/>
+
+  <TextView
+    android:id="@+id/artwork_byline"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:paddingBottom="@dimen/spacing_double"
+    android:paddingLeft="@dimen/keyline_1"
+    android:paddingRight="@dimen/keyline_1"
+    android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+    tools:text="(c) 2014 CNES/Spot Image"/>
+
+</android.support.percent.PercentRelativeLayout>

@@ -3,8 +3,8 @@ package com.tasomaniac.muzei.history.artwork;
 import android.content.Intent;
 import android.net.Uri;
 
-
 public class Artwork {
+
     private Uri imageUri;
     private String title;
     private String byline;
