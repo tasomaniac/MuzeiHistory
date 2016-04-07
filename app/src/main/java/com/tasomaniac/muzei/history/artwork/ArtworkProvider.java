@@ -12,9 +12,6 @@ import net.simonvt.schematic.annotation.TableEndpoint;
 @ContentProvider(authority = ArtworkProvider.AUTHORITY, database = ArtworkDatabase.class)
 public class ArtworkProvider {
 
-    private ArtworkProvider() {
-    }
-
     public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider";
 
     @TableEndpoint(table = ArtworkDatabase.ARTWORKS)
@@ -35,5 +32,8 @@ public class ArtworkProvider {
         public static Uri withId(long id) {
             return Uri.parse("content://" + AUTHORITY + "/artworks/" + id);
         }
+    }
+
+    private ArtworkProvider() {
     }
 }

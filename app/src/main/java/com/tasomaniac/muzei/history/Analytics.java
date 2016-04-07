@@ -20,15 +20,15 @@ public interface Analytics {
         private final Tracker tracker;
         private final Answers answers;
 
-        public AnalyticsImpl(Tracker tracker) {
+        public AnalyticsImpl(Tracker tracker, Answers answers) {
             this.tracker = tracker;
-            answers = Answers.getInstance();
+            this.answers = answers;
         }
 
         @Override
         public void sendScreenView(String screenName) {
             tracker.setScreenName(screenName);
-            tracker.send(new HitBuilders.AppViewBuilder().build());
+            tracker.send(new HitBuilders.ScreenViewBuilder().build());
 
             answers.logContentView(new ContentViewEvent().putContentName(screenName));
         }

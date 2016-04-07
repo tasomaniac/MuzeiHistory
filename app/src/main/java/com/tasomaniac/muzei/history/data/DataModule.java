@@ -1,25 +1,28 @@
 package com.tasomaniac.muzei.history.data;
 
 import android.app.Application;
+import android.content.Intent;
 import android.net.Uri;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
+import com.tasomaniac.muzei.history.artwork.Artwork;
 import com.tasomaniac.muzei.history.artwork.ArtworkProvider;
-
-import java.io.File;
+import com.tasomaniac.muzei.history.artwork.IntentFieldConverter;
+import com.tasomaniac.muzei.history.artwork.UriFieldConverter;
 
 import javax.inject.Singleton;
+import java.io.File;
 
 import dagger.Module;
 import dagger.Provides;
 import nl.qbusict.cupboard.Cupboard;
+import nl.qbusict.cupboard.CupboardBuilder;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import timber.log.Timber;
 
 import static com.jakewharton.byteunits.DecimalByteUnit.MEGABYTES;
-import static com.tasomaniac.muzei.history.cupboard.CupboardFactory.cupboard;
 
 @Module
 public class DataModule {
@@ -27,7 +30,13 @@ public class DataModule {
 
     @Provides @Singleton
     Cupboard provideCupboard() {
-        return cupboard();
+        Cupboard cupboard = new CupboardBuilder()
+                .registerFieldConverter(Intent.class, new IntentFieldConverter())
+                .registerFieldConverter(Uri.class, new UriFieldConverter())
+                .build();
+
+        cupboard.register(Artwork.class);
+        return cupboard;
     }
 
     @Provides @Singleton Uri provideArtworkUri() {
@@ -35,7 +44,13 @@ public class DataModule {
     }
 
     @Provides @Singleton OkHttpClient provideOkHttpClient(Application app) {
-        return createOkHttpClient(app).build();
+        // Install an HTTP cache in the application cache directory.
+        File cacheDir = new File(app.getCacheDir(), "http");
+        Cache cache = new Cache(cacheDir, DISK_CACHE_SIZE);
+
+        return new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
     }
 
     @Provides @Singleton Picasso providePicasso(Application app, OkHttpClient client) {
@@ -50,12 +65,4 @@ public class DataModule {
                 .build();
     }
 
-    static OkHttpClient.Builder createOkHttpClient(Application app) {
-        // Install an HTTP cache in the application cache directory.
-        File cacheDir = new File(app.getCacheDir(), "http");
-        Cache cache = new Cache(cacheDir, DISK_CACHE_SIZE);
-
-        return new OkHttpClient.Builder()
-                .cache(cache);
-    }
 }

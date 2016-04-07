@@ -6,6 +6,7 @@ import android.graphics.Point;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.crashlytics.android.answers.Answers;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
@@ -38,7 +39,7 @@ final class AppModule {
         GoogleAnalytics googleAnalytics = GoogleAnalytics.getInstance(app);
         Tracker tracker = googleAnalytics.newTracker(BuildConfig.ANALYTICS_KEY);
         tracker.setSessionTimeout(300); // ms? s? better be s.
-        return new Analytics.AnalyticsImpl(tracker);
+        return new Analytics.AnalyticsImpl(tracker, Answers.getInstance());
     }
 
     @Provides @Singleton float provideImageHeight(Application app) {
