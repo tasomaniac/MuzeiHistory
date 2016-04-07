@@ -1,4 +1,4 @@
-package com.tasomaniac.muzei.history.artwork;
+package com.tasomaniac.muzei.history.data.artwork;
 
 import android.content.Intent;
 import android.net.Uri;

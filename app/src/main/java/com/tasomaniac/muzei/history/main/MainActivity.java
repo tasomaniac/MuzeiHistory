@@ -16,14 +16,13 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.tasomaniac.muzei.history.BaseActivity;
 import com.tasomaniac.muzei.history.R;
-import com.tasomaniac.muzei.history.artwork.Artwork;
 import com.tasomaniac.muzei.history.data.Injector;
+import com.tasomaniac.muzei.history.data.artwork.Artwork;
 import com.tasomaniac.muzei.history.helper.TransitionHelper;
 import com.tasomaniac.muzei.history.widget.OffsetDecoration;
 
-import java.util.List;
-
 import javax.inject.Inject;
+import java.util.List;
 
 import nl.qbusict.cupboard.Cupboard;
 import nl.qbusict.cupboard.QueryResultIterable;

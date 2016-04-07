@@ -1,4 +1,4 @@
-package com.tasomaniac.muzei.history.artwork;
+package com.tasomaniac.muzei.history.data.artwork;
 
 import net.simonvt.schematic.annotation.AutoIncrement;
 import net.simonvt.schematic.annotation.DataType;

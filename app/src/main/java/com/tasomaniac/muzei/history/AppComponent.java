@@ -1,8 +1,7 @@
 package com.tasomaniac.muzei.history;
 
-
-import com.tasomaniac.muzei.history.artwork.ArtworkService;
 import com.tasomaniac.muzei.history.data.DataModule;
+import com.tasomaniac.muzei.history.data.artwork.ArtworkService;
 import com.tasomaniac.muzei.history.main.MainActivity;
 import com.tasomaniac.muzei.history.settings.SettingsFragment;
 

@@ -32,20 +32,20 @@
     </activity>
 
     <provider
-      android:name=".artwork.generated.ArtworkProvider"
+      android:name=".data.artwork.generated.ArtworkProvider"
       android:authorities="${applicationId}.provider"
       android:exported="true"
       tools:ignore="ExportedContentProvider"/>
 
     <receiver
-      android:name=".artwork.ArtworkReceiver"
+      android:name=".data.artwork.ArtworkReceiver"
       tools:ignore="ExportedReceiver">
       <intent-filter>
         <action android:name="com.google.android.apps.muzei.ACTION_ARTWORK_CHANGED"/>
       </intent-filter>
     </receiver>
 
-    <service android:name=".artwork.ArtworkService"/>
+    <service android:name=".data.artwork.ArtworkService"/>
 
     <meta-data
       android:name="io.fabric.ApiKey"

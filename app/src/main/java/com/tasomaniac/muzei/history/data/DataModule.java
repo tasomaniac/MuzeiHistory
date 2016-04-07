@@ -6,10 +6,10 @@ import android.net.Uri;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
-import com.tasomaniac.muzei.history.artwork.Artwork;
-import com.tasomaniac.muzei.history.artwork.ArtworkProvider;
-import com.tasomaniac.muzei.history.artwork.IntentFieldConverter;
-import com.tasomaniac.muzei.history.artwork.UriFieldConverter;
+import com.tasomaniac.muzei.history.data.artwork.Artwork;
+import com.tasomaniac.muzei.history.data.artwork.ArtworkProvider;
+import com.tasomaniac.muzei.history.data.artwork.IntentFieldConverter;
+import com.tasomaniac.muzei.history.data.artwork.UriFieldConverter;
 
 import javax.inject.Singleton;
 import java.io.File;

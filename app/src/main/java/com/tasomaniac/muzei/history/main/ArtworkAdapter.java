@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.tasomaniac.muzei.history.R;
-import com.tasomaniac.muzei.history.artwork.Artwork;
+import com.tasomaniac.muzei.history.data.artwork.Artwork;
 
 import java.util.ArrayList;
 import java.util.List;
