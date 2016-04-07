@@ -6,7 +6,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:fitsSystemWindows="true"
-  tools:context="com.tasomaniac.muzei.history.main.MainActivity">
+  tools:context=".ui.main.MainActivity">
 
   <android.support.design.widget.AppBarLayout
     android:id="@+id/app_bar"
@@ -47,7 +47,7 @@
     android:transitionGroup="false"
     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.tasomaniac.muzei.history.main.MainActivity"
+    tools:context=".ui.main.MainActivity"
     tools:ignore="UnusedAttribute"
     tools:listitem="@layout/item_artwork"/>
 

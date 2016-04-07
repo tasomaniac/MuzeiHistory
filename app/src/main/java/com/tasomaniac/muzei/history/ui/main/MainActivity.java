@@ -1,4 +1,4 @@
-package com.tasomaniac.muzei.history.main;
+package com.tasomaniac.muzei.history.ui.main;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -18,8 +18,8 @@ import com.tasomaniac.muzei.history.BaseActivity;
 import com.tasomaniac.muzei.history.R;
 import com.tasomaniac.muzei.history.data.Injector;
 import com.tasomaniac.muzei.history.data.artwork.Artwork;
-import com.tasomaniac.muzei.history.helper.TransitionHelper;
-import com.tasomaniac.muzei.history.widget.OffsetDecoration;
+import com.tasomaniac.muzei.history.ui.misc.TransitionHelper;
+import com.tasomaniac.muzei.history.ui.misc.OffsetDecoration;
 
 import javax.inject.Inject;
 import java.util.List;

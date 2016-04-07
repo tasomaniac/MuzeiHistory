@@ -1,4 +1,4 @@
-package com.tasomaniac.muzei.history.main;
+package com.tasomaniac.muzei.history.ui.main;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;

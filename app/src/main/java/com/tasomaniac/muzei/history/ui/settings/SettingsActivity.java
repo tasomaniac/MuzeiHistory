@@ -1,4 +1,4 @@
-package com.tasomaniac.muzei.history.settings;
+package com.tasomaniac.muzei.history.ui.settings;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

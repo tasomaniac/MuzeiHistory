@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tasomaniac.muzei.history.widget;
+package com.tasomaniac.muzei.history.ui.misc;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
