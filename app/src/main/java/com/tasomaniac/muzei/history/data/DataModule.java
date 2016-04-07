@@ -2,10 +2,12 @@ package com.tasomaniac.muzei.history.data;
 
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
+import com.tasomaniac.muzei.history.R;
 import com.tasomaniac.muzei.history.data.artwork.Artwork;
 import com.tasomaniac.muzei.history.data.artwork.ArtworkProvider;
 import com.tasomaniac.muzei.history.data.artwork.IntentFieldConverter;
@@ -16,6 +18,7 @@ import java.io.File;
 
 import dagger.Module;
 import dagger.Provides;
+import info.metadude.android.typedpreferences.BooleanPreference;
 import nl.qbusict.cupboard.Cupboard;
 import nl.qbusict.cupboard.CupboardBuilder;
 import okhttp3.Cache;
@@ -65,4 +68,10 @@ public class DataModule {
                 .build();
     }
 
+    @Provides @Singleton
+    BooleanPreference provideMuzeiIntegrationPref(
+            Application application,
+            SharedPreferences sharedPreferences) {
+        return new BooleanPreference(sharedPreferences, application.getString(R.string.pref_key_muzei_integration), false);
+    }
 }

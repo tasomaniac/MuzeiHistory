@@ -2,7 +2,9 @@ package com.tasomaniac.muzei.history;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Point;
+import android.support.v7.preference.PreferenceManager;
 import android.view.Display;
 import android.view.WindowManager;
 
@@ -29,6 +31,11 @@ final class AppModule {
     @Provides @Singleton
     Application application() {
         return app;
+    }
+
+    @Provides @Singleton
+    SharedPreferences provideSharedPreferences(Application app) {
+        return PreferenceManager.getDefaultSharedPreferences(app);
     }
 
     @Provides @Singleton Analytics provideAnalytics() {

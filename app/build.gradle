@@ -114,6 +114,7 @@ dependencies {
     compile 'net.simonvt.schematic:schematic:0.6.4'
     compile 'nl.qbusict:cupboard:2.1.4'
 
+    compile 'info.metadude.android:typed-preferences:2.1.0'
     compile 'com.tasomaniac:integrationpreference-support:0.2'
 
     compile 'com.google.android.apps.muzei:muzei-api:2.0'

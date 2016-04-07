@@ -3,6 +3,7 @@ package com.tasomaniac.muzei.history;
 import com.tasomaniac.muzei.history.data.DataModule;
 import com.tasomaniac.muzei.history.data.artwork.ArtworkService;
 import com.tasomaniac.muzei.history.ui.main.MainActivity;
+import com.tasomaniac.muzei.history.ui.settings.SettingsActivity;
 import com.tasomaniac.muzei.history.ui.settings.SettingsFragment;
 
 import javax.inject.Singleton;
@@ -14,6 +15,8 @@ import dagger.Component;
 public interface AppComponent {
 
     void inject(App app);
+
+    void inject(SettingsActivity activity);
 
     void inject(SettingsFragment fragment);
 
